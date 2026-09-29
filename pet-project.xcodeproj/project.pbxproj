@@ -6,6 +6,11 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6E70BFCE306BF89500AD6D6C /* DebugConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6E70BFCD306BF89500AD6D6C /* DebugConfig.xcconfig */; };
+		6E70BFD0306C2CBD00AD6D6C /* ReleaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6E70BFCF306C2CBD00AD6D6C /* ReleaseConfig.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6E70BFB1306BE35A00AD6D6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +32,26 @@
 		6E70BFA3306BE35900AD6D6C /* pet-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pet-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E70BFB0306BE35A00AD6D6C /* pet-projectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pet-projectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E70BFBA306BE35A00AD6D6C /* pet-projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pet-projectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E70BFCD306BF89500AD6D6C /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
+		6E70BFCF306C2CBD00AD6D6C /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6E70BFD2306C2E1600AD6D6C /* Exceptions for "pet-project" folder in "pet-project" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6E70BFA2306BE35900AD6D6C /* pet-project */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6E70BFA5306BE35900AD6D6C /* pet-project */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6E70BFD2306C2E1600AD6D6C /* Exceptions for "pet-project" folder in "pet-project" target */,
+			);
 			path = "pet-project";
 			sourceTree = "<group>";
 		};
@@ -69,6 +89,8 @@
 		6E70BF9A306BE35900AD6D6C = {
 			isa = PBXGroup;
 			children = (
+				6E70BFCF306C2CBD00AD6D6C /* ReleaseConfig.xcconfig */,
+				6E70BFCD306BF89500AD6D6C /* DebugConfig.xcconfig */,
 				6E70BFA5306BE35900AD6D6C /* pet-project */,
 				6E70BFB3306BE35A00AD6D6C /* pet-projectTests */,
 				6E70BFBD306BE35A00AD6D6C /* pet-projectUITests */,
@@ -197,6 +219,8 @@
 		6E70BFA1306BE35900AD6D6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				6E70BFCE306BF89500AD6D6C /* DebugConfig.xcconfig in Resources */,
+				6E70BFD0306C2CBD00AD6D6C /* ReleaseConfig.xcconfig in Resources */,
 			);
 		};
 		6E70BFAE306BE35A00AD6D6C /* Resources */ = {
@@ -364,6 +388,7 @@
 		};
 		6E70BFC3306BE35A00AD6D6C /* Debug configuration for PBXNativeTarget "pet-project" */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E70BFCD306BF89500AD6D6C /* DebugConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -371,6 +396,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "pet-project/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -395,6 +421,7 @@
 		};
 		6E70BFC4306BE35A00AD6D6C /* Release configuration for PBXNativeTarget "pet-project" */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E70BFCF306C2CBD00AD6D6C /* ReleaseConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -402,6 +429,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "pet-project/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -513,7 +541,7 @@
 				6E70BFC0306BE35A00AD6D6C /* Debug configuration for PBXProject "pet-project" */,
 				6E70BFC1306BE35A00AD6D6C /* Release configuration for PBXProject "pet-project" */,
 			);
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		6E70BFC2306BE35A00AD6D6C /* Build configuration list for PBXNativeTarget "pet-project" */ = {
 			isa = XCConfigurationList;
@@ -521,7 +549,7 @@
 				6E70BFC3306BE35A00AD6D6C /* Debug configuration for PBXNativeTarget "pet-project" */,
 				6E70BFC4306BE35A00AD6D6C /* Release configuration for PBXNativeTarget "pet-project" */,
 			);
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		6E70BFC5306BE35A00AD6D6C /* Build configuration list for PBXNativeTarget "pet-projectTests" */ = {
 			isa = XCConfigurationList;
@@ -529,7 +557,7 @@
 				6E70BFC6306BE35A00AD6D6C /* Debug configuration for PBXNativeTarget "pet-projectTests" */,
 				6E70BFC7306BE35A00AD6D6C /* Release configuration for PBXNativeTarget "pet-projectTests" */,
 			);
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		6E70BFC8306BE35A00AD6D6C /* Build configuration list for PBXNativeTarget "pet-projectUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,7 +565,7 @@
 				6E70BFC9306BE35A00AD6D6C /* Debug configuration for PBXNativeTarget "pet-projectUITests" */,
 				6E70BFCA306BE35A00AD6D6C /* Release configuration for PBXNativeTarget "pet-projectUITests" */,
 			);
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
