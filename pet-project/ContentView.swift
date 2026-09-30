@@ -8,18 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var path = NavigationPath()
+    
     var body: some View {
-        let tmdbAccessToken = Bundle.main.infoDictionary?["TmdbAccessToken"] as? String
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!\n\(tmdbAccessToken!)")
+        NavigationStack(path: $path) {
+            let tmdbAccessToken = Bundle.main.infoDictionary?["TmdbAccessToken"] as? String
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                NavigationLink("Hello, world!\n\(tmdbAccessToken!)", value: tmdbAccessToken!)
+            }
+            .padding()
+            .navigationDestination(for: String.self) { message in
+                DetailView(entryText: message)
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    @Previewable @State var path = NavigationPath()
+    
+    NavigationStack(path: $path) {
+        ContentView()
+    }
 }
