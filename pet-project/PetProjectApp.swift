@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct pet_projectApp: App {
+struct PetProjectApp: App {
     private let moviesFeatureFactory: MoviesFeatureFactory
 
     init() {

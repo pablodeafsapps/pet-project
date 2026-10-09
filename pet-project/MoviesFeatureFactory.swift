@@ -20,12 +20,12 @@ struct MoviesFeatureFactory {
     }
 
     func makeFetchMoviesUseCase() -> FetchMoviesUseCase {
-        let dataSource = MovieRemoteDataSource(
+        let dataSource = MoviesRemoteDataSource(
             url: configuration.topRatedMoviesURL,
             session: session
         )
         let repository = DefaultMoviesRepository(
-            movieDataSource: dataSource,
+            moviesDataSource: dataSource,
             accessToken: configuration.accessToken
         )
 

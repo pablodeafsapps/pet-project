@@ -10,11 +10,11 @@ import Foundation
 private let authorizationHeader = "Authorization"
 private let bearerTokenPrefix = "Bearer"
 
-internal protocol MovieDataSource {
+internal protocol MoviesDataSource {
     func fetchMoviesData(apiKey: String) async -> Result<MoviesResultDto, Error>
 }
 
-internal struct MovieRemoteDataSource: MovieDataSource {
+internal struct MoviesRemoteDataSource: MoviesDataSource {
     private let url: URL
     private let session: URLSession
 

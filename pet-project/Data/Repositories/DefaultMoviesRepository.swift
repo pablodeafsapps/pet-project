@@ -7,18 +7,18 @@
 
 import Foundation
 
-internal struct DefaultMoviesRepository : MovieRepository {
+internal struct DefaultMoviesRepository : MoviesRepository {
     
-    private let movieDataSource: MovieDataSource
+    private let moviesDataSource: MoviesDataSource
     private let accessToken: String
 
-    init(movieDataSource: MovieDataSource, accessToken: String) {
-        self.movieDataSource = movieDataSource
+    init(moviesDataSource: MoviesDataSource, accessToken: String) {
+        self.moviesDataSource = moviesDataSource
         self.accessToken = accessToken
     }
     
     func fetchMovies() async -> Result<MoviesResult, Error> {
-        return await movieDataSource.fetchMoviesData(apiKey: accessToken)
+        return await moviesDataSource.fetchMoviesData(apiKey: accessToken)
             .map { dto in dto.toDomain() }
     }
 }

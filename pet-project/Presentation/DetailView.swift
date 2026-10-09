@@ -9,41 +9,51 @@ import SwiftUI
 
 struct DetailView: View {
     
-    let entryText: String
+    let fetchMoviesUseCase: FetchMoviesUseCase
+    @State internal var detailViewState: DetailViewState = .loading
     
     var body: some View {
-        Text("Detail View!\n\(entryText)")
-        Button("Get me some films!") {
-            
-        Task {
-            do {
-                let data = try await fetchFilmsData(apiKey: entryText)
-                print("Received: \(data ?? "none")")
-            } catch {
-                print("Error: \(error)")
+        Group {
+            switch detailViewState {
+                case .error(let errorMessage):
+                    Text(errorMessage ?? "Try again later.")
+                        .padding(5.0)
+                        .multilineTextAlignment(.center)
+                case .loading:
+                    ProgressView()
+                case .data(let movies):
+                    List(movies) { movie in
+                        Text(movie.title)
+                    }
+            }
+        }.task {
+            switch await fetchMoviesUseCase() {
+                case .success(let moviesResult):
+                    detailViewState = .data(movies: moviesResult.movies)
+                case .failure(let error):
+                    detailViewState = .error(errorMessage: error.localizedDescription)
             }
         }
-        }
-        .buttonStyle(.borderedProminent)
     }
 }
 
-private func fetchFilmsData(apiKey: String) async throws -> String? {
-    guard let url = URL(string: "https://api.themoviedb.org/3/movie/top_rated") else {
-        return nil
-    }
-    var request = URLRequest(url: url)
-    request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-    
-    let (data, response) = try await URLSession.shared.data(for: request)
-    guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode) else {
-        print(String(describing: response))
-        return nil
-    }
-    return String(describing: data)
+internal enum DetailViewState {
+    case error(errorMessage: String?)
+    case loading
+    case data(movies: [Movie])
 }
 
 #Preview {
-    DetailView(entryText: "Wow!")
+    DetailView(
+        fetchMoviesUseCase: FetchMoviesUseCase(
+            moviesRepository: PreviewMoviesRepository()
+        ),
+        detailViewState: .loading
+    )
+}
+
+private struct PreviewMoviesRepository: MoviesRepository {
+    func fetchMovies() async -> Result<MoviesResult, Error> {
+        .failure(MovieError.unknown)
+    }
 }
