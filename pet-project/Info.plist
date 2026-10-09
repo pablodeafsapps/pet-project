@@ -4,5 +4,9 @@
 <dict>
 	<key>TmdbAccessToken</key>
 	<string>$(TMDB_ACCESS_TOKEN)</string>
+	<key>TmdbApiPath</key>
+	<string>$(TMDB_API_PATH)</string>
+	<key>TmdbTopRatedMoviesEndpoint</key>
+	<string>$(TMDB_TOP_RATED_MOVIES_ENDPOINT)</string>
 </dict>
 </plist>

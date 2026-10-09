@@ -8,3 +8,5 @@
 // Configuration settings file format documentation can be found at:
 // https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
 TMDB_ACCESS_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZjIzZGY4ZjU3NWEyZmQ4M2E2ZTVlMzBmZmIyNmQ4MiIsIm5iZiI6MTc5MDY4NzIwNi41NDQ5OTk4LCJzdWIiOiI2YWJiYjdlNmNkZWNiZDhiNWE1YTMxN2EiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Fr44bWO58eZgfrJNvAq1XoL1g3eKXDczz6Oer5fWZPA
+TMDB_API_PATH = https:/$()/api.themoviedb.org/3
+TMDB_TOP_RATED_MOVIES_ENDPOINT = /movie/top_rated
